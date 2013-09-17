@@ -1,0 +1,2351 @@
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (18.4ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (3.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (2.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreatePosts (20130731192808)
+  [1m[36mSQL (0.7ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "Title" varchar(255), "Body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130731192808')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("posts")
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from service at /Users/flagship8787/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:104)
+
+
+Started GET "/posts" for 127.0.0.1 at Wed Jul 31 18:18:08 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (9.9ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 115ms (Views: 46.8ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at Wed Jul 31 18:18:38 -0400 2013
+  Processing by PostsController#new as HTML
+Rendered posts/_form.html.erb (56.6ms)
+Rendered posts/new.html.erb within layouts/application (62.2ms)
+Completed 200 OK in 77ms (Views: 70.4ms | ActiveRecord: 0.0ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from service at /Users/flagship8787/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:104)
+
+
+Started GET "/posts" for 127.0.0.1 at Fri Sep 06 14:41:52 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (23.8ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 104ms (Views: 35.4ms | ActiveRecord: 23.8ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at Fri Sep 06 14:41:59 -0400 2013
+  Processing by PostsController#new as HTML
+Rendered posts/_form.html.erb (64.7ms)
+Rendered posts/new.html.erb within layouts/application (71.2ms)
+Completed 200 OK in 159ms (Views: 152.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at Fri Sep 06 15:19:50 -0400 2013
+  Processing by PostsController#create as HTML
+  Parameters: {"commit"=>"Create Post", "post"=>{"Body"=>"This is my first post!!", "Title"=>"First Post in Rails Application"}, "authenticity_token"=>"yYS6sXL4+vVpfT/RGcXA4xOo52LSbC1CAMvil+9ipAw=", "utf8"=>"✓"}
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (16.6ms)[0m  [1mINSERT INTO "posts" ("updated_at", "Body", "created_at", "Title") VALUES ('2013-09-06 19:19:50.948035', 'This is my first post!!', '2013-09-06 19:19:50.948035', 'First Post in Rails Application')[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 253ms
+
+
+Started GET "/posts/1" for 127.0.0.1 at Fri Sep 06 15:19:51 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1
+Rendered posts/show.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 74ms (Views: 67.3ms | ActiveRecord: 17.0ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at Fri Sep 06 15:24:21 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 21ms (Views: 14.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Fri Sep 06 15:24:28 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 22ms (Views: 15.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at Fri Sep 06 15:24:35 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 21ms (Views: 14.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Fri Sep 06 15:24:41 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 22ms (Views: 16.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at Fri Sep 06 15:24:56 -0400 2013
+  Processing by PostsController#new as HTML
+Rendered posts/_form.html.erb (8.4ms)
+Rendered posts/new.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 27ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at Fri Sep 06 15:26:14 -0400 2013
+  Processing by PostsController#create as HTML
+  Parameters: {"commit"=>"Create Post", "post"=>{"Body"=>"The basic package for Baby Naming Invitations includes personalized invitations and envelopes printed with your return address. Hebrew text is available.  You will have the opportunity to view an on line proof before we go to print. Coordinated response cards, reception cards, place cards, map details, direction cards, programs, pamphlets and thank you cards are also available. Call toll free 888-286-0365 for further information.\r\n\r\n  See sample Baby Naming Invitation Verses, Wording.\r\nSee sample Baby Naming Thank You Card Verses\r\nWhen you place your order, please have the following information ready.\r\nSee table for prices.\r\nYou may place your order by calling us toll free at 888-286-0365\r\nor by using the order form.", "Title"=>"2nd Post"}, "authenticity_token"=>"yYS6sXL4+vVpfT/RGcXA4xOo52LSbC1CAMvil+9ipAw=", "utf8"=>"✓"}
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO "posts" ("Title", "Body", "created_at", "updated_at") VALUES ('2nd Post', 'The basic package for Baby Naming Invitations includes personalized invitations and envelopes printed with your return address. Hebrew text is available. You will have the opportunity to view an on line proof before we go to print. Coordinated response cards, reception cards, place cards, map details, direction cards, programs, pamphlets and thank you cards are also available. Call toll free 888-286-0365 for further information.
+
+ See sample Baby Naming Invitation Verses, Wording.
+See sample Baby Naming Thank You Card Verses
+When you place your order, please have the following information ready.
+See table for prices.
+You may place your order by calling us toll free at 888-286-0365
+or by using the order form.', '2013-09-06 19:26:14.136874', '2013-09-06 19:26:14.136874')[0m
+Redirected to http://localhost:3000/posts/2
+Completed 302 Found in 16ms
+
+
+Started GET "/posts/2" for 127.0.0.1 at Fri Sep 06 15:26:14 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 2 LIMIT 1
+Rendered posts/show.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 21ms (Views: 14.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/2" for 127.0.0.1 at Fri Sep 06 15:26:21 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 2 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 95ms (Views: 14.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Fri Sep 06 15:26:24 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 24ms (Views: 17.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/2" for 127.0.0.1 at Fri Sep 06 15:27:08 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 2 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 22ms (Views: 15.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at Fri Sep 06 15:27:25 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1
+Rendered posts/show.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 89ms (Views: 81.2ms | ActiveRecord: 0.3ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from service at /Users/flagship8787/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:104)
+
+
+Started GET "/posts/1" for 127.0.0.1 at Sun Sep 08 06:19:23 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPost Load (12.1ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1
+Rendered posts/show.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 99ms (Views: 41.8ms | ActiveRecord: 12.8ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at Sun Sep 08 07:09:14 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (16.4ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (38.6ms)
+Completed 200 OK in 265ms (Views: 174.4ms | ActiveRecord: 16.4ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at Sun Sep 08 07:10:44 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1
+Rendered posts/show.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 41ms (Views: 16.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at Sun Sep 08 07:12:04 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (80.4ms)
+Completed 200 OK in 155ms (Views: 147.9ms | ActiveRecord: 0.2ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from service at /Users/flagship8787/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:104)
+
+
+Started GET "/posts" for 127.0.0.1 at Tue Sep 10 15:33:00 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.1ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (74.8ms)
+Completed 200 OK in 164ms (Views: 119.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at Tue Sep 10 15:35:32 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 42ms (Views: 34.9ms | ActiveRecord: 0.6ms)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreatePosts (20130731192808)
+Migrating to DeviseCreateUsers (20130910235151)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130910235151')[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("posts")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_reset_password_token')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from service at /Users/flagship8787/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:104)
+
+
+Started GET "/posts" for 127.0.0.1 at Tue Sep 10 19:58:09 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (22.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 125ms (Views: 43.9ms | ActiveRecord: 22.3ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Tue Sep 10 19:58:34 -0400 2013
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/devise-1.4.2/app/views/devise/shared/_links.erb (2.0ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/devise-1.4.2/app/views/devise/registrations/new.html.erb within layouts/application (138.8ms)
+Completed 200 OK in 179ms (Views: 150.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at Tue Sep 10 20:00:36 -0400 2013
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"commit"=>"Sign up", "authenticity_token"=>"yYS6sXL4+vVpfT/RGcXA4xOo52LSbC1CAMvil+9ipAw=", "utf8"=>"✓", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+  [1m[35mSQL (21.4ms)[0m  SELECT 1 FROM "users" WHERE ("users"."email" = 'ira@ipvstudio.com') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (26.6ms)[0m  INSERT INTO "users" ("remember_created_at", "last_sign_in_ip", "updated_at", "reset_password_token", "current_sign_in_ip", "email", "created_at", "current_sign_in_at", "sign_in_count", "last_sign_in_at", "encrypted_password", "reset_password_sent_at") VALUES (NULL, NULL, '2013-09-11 00:00:36.570668', NULL, NULL, 'ira@ipvstudio.com', '2013-09-11 00:00:36.570668', NULL, 0, NULL, '$2a$10$gTutaFNE8fT0vYXSwKuhteSLsxw7Ns7xlGG9hdaH14dzSdSPhDLt.', NULL)
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "last_sign_in_ip" = '127.0.0.1', "updated_at" = '2013-09-11 00:00:36.767577', "current_sign_in_ip" = '127.0.0.1', "current_sign_in_at" = '2013-09-11 00:00:36.766902', "sign_in_count" = 1, "last_sign_in_at" = '2013-09-11 00:00:36.766902' WHERE "users"."id" = 1[0m
+Completed 500 Internal Server Error in 398ms
+
+NameError (undefined local variable or method `root_path' for #<Devise::RegistrationsController:0x103eb9f20>):
+  
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (78.2ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (89.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at Tue Sep 10 20:04:14 -0400 2013
+
+NameError (undefined local variable or method `index' for #<ActionDispatch::Routing::Mapper:0x1040d2398>):
+  config/routes.rb:6
+  config/routes.rb:1
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.9ms)
+
+
+Started POST "/users" for 127.0.0.1 at Tue Sep 10 20:04:39 -0400 2013
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"commit"=>"Sign up", "authenticity_token"=>"yYS6sXL4+vVpfT/RGcXA4xOo52LSbC1CAMvil+9ipAw=", "utf8"=>"✓", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "users" WHERE ("users"."email" = 'ira@ipvstudio.com') LIMIT 1
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/devise-1.4.2/app/views/devise/shared/_links.erb (2.7ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/devise-1.4.2/app/views/devise/registrations/new.html.erb within layouts/application (87.8ms)
+Completed 200 OK in 255ms (Views: 115.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Sep 10 20:05:01 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/devise-1.4.2/app/views/devise/shared/_links.erb (2.5ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/devise-1.4.2/app/views/devise/sessions/new.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 43ms (Views: 24.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Tue Sep 10 20:06:02 -0400 2013
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"yYS6sXL4+vVpfT/RGcXA4xOo52LSbC1CAMvil+9ipAw=", "utf8"=>"✓", "user"=>{"remember_me"=>"1", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'ira@ipvstudio.com' LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "updated_at" = '2013-09-11 00:06:03.194003', "remember_created_at" = '2013-09-11 00:06:03.193500' WHERE "users"."id" = 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "sign_in_count" = 2, "updated_at" = '2013-09-11 00:06:03.200594', "current_sign_in_at" = '2013-09-11 00:06:03.199552' WHERE "users"."id" = 1[0m
+Completed 500 Internal Server Error in 258ms
+
+NameError (undefined local variable or method `root_path' for #<Devise::SessionsController:0x103d06638>):
+  
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.9ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Tue Sep 10 20:07:43 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (11.8ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 36ms (Views: 19.2ms | ActiveRecord: 11.8ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Tue Sep 10 20:27:08 -0400 2013
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"yYS6sXL4+vVpfT/RGcXA4xOo52LSbC1CAMvil+9ipAw=", "utf8"=>"✓", "user"=>{"remember_me"=>"1", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'ira@ipvstudio.com' LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "sign_in_count" = 3, "last_sign_in_at" = '2013-09-11 00:06:03.199552', "updated_at" = '2013-09-11 00:27:09.140159', "current_sign_in_at" = '2013-09-11 00:27:09.139612' WHERE "users"."id" = 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 274ms
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Tue Sep 10 20:27:37 -0400 2013
+  Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 23ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Sep 10 20:28:14 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 22ms
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Tue Sep 10 20:28:32 -0400 2013
+  Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 23ms
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Tue Sep 10 20:29:24 -0400 2013
+  Processing by Devise::RegistrationsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 25ms
+
+
+Started GET "/user/logout" for 127.0.0.1 at Wed Sep 11 07:22:11 -0400 2013
+
+ActionController::RoutingError (No route matches "/user/logout"):
+  
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (80.6ms)
+
+
+Started GET "/user/log_out" for 127.0.0.1 at Wed Sep 11 07:22:32 -0400 2013
+
+ActionController::RoutingError (No route matches "/user/log_out"):
+  
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/user/login" for 127.0.0.1 at Wed Sep 11 07:22:59 -0400 2013
+
+ActionController::RoutingError (No route matches "/user/login"):
+  
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Wed Sep 11 07:23:16 -0400 2013
+  Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 274ms
+
+
+Started GET "/user_signout" for 127.0.0.1 at Wed Sep 11 07:26:48 -0400 2013
+
+ActionController::RoutingError (No route matches "/user_signout"):
+  
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at Wed Sep 11 07:29:03 -0400 2013
+
+ActionController::RoutingError (No route matches "/users/sign_out"):
+  
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Wed Sep 11 07:30:01 -0400 2013
+  Processing by Devise::RegistrationsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 39ms
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at Wed Sep 11 07:30:17 -0400 2013
+
+ActionController::RoutingError (No route matches "/users/sign_out"):
+  
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Wed Sep 11 07:36:16 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (29.5ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (37.3ms)
+Completed 200 OK in 147ms (Views: 89.5ms | ActiveRecord: 29.5ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at Wed Sep 11 07:37:00 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1
+Rendered posts/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 146ms (Views: 107.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at Wed Sep 11 07:37:06 -0400 2013
+  Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1[0m
+Rendered posts/_form.html.erb (8.8ms)
+Rendered posts/edit.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 32ms (Views: 24.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Wed Sep 11 07:37:14 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 26ms (Views: 19.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/password" for 127.0.0.1 at Wed Sep 11 07:38:53 -0400 2013
+
+ActionController::RoutingError (No route matches "/users/password"):
+  
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Wed Sep 11 10:04:18 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.7ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (29.2ms)
+Completed 200 OK in 78ms (Views: 60.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/2" for 127.0.0.1 at Wed Sep 11 10:04:30 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 2 LIMIT 1
+Rendered posts/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 34ms (Views: 27.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/2/edit" for 127.0.0.1 at Wed Sep 11 10:04:37 -0400 2013
+  Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 2 LIMIT 1[0m
+Rendered posts/_form.html.erb (9.4ms)
+Rendered posts/edit.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 224ms (Views: 216.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/posts/2" for 127.0.0.1 at Wed Sep 11 10:05:07 -0400 2013
+  Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"yYS6sXL4+vVpfT/RGcXA4xOo52LSbC1CAMvil+9ipAw=", "id"=>"2"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 2 LIMIT 1
+  [1m[36mAREL (0.9ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = 2[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 17ms
+
+
+Started GET "/posts" for 127.0.0.1 at Wed Sep 11 10:05:07 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 37ms (Views: 19.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at Wed Sep 11 10:41:56 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 29ms (Views: 20.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Wed Sep 11 10:42:08 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 26ms (Views: 19.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at Wed Sep 11 10:42:23 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 25ms (Views: 15.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at Wed Sep 11 11:05:43 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1
+Rendered devise/shared/_links.erb (86.5ms)
+Rendered posts/show.html.erb within layouts/application (107.5ms)
+Completed 500 Internal Server Error in 142ms
+
+ActionView::Template::Error (undefined local variable or method `resource_name' for #<#<Class:0x103bd0408>:0x103bcd488>):
+    1: <%- if controller_name != 'sessions' %>
+    2:   <%= link_to "Sign in", new_session_path(resource_name) %><br />
+    3: <% end -%>
+    4: 
+    5: <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  app/views/devise/shared/_links.erb:2:in `_app_views_devise_shared__links_erb__628768406_2178697440_2126910'
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__594484792_2178830780_0'
+  app/controllers/posts_controller.rb:18:in `show'
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.9ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (13.3ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (51.6ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Wed Sep 11 11:08:16 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.8ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (76.9ms)
+Completed 200 OK in 96ms (Views: 87.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Wed Sep 11 11:08:28 -0400 2013
+  Processing by Devise::RegistrationsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 23ms
+
+
+Started GET "/post/" for 127.0.0.1 at Wed Sep 11 11:09:01 -0400 2013
+
+ActionController::RoutingError (No route matches "/post"):
+  
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/posts/" for 127.0.0.1 at Wed Sep 11 11:09:12 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 25ms (Views: 17.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/" for 127.0.0.1 at Wed Sep 11 11:10:30 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+Rendered devise/shared/_links.erb (89.3ms)
+Rendered posts/index.html.erb within layouts/application (109.2ms)
+Completed 500 Internal Server Error in 135ms
+
+ActionView::Template::Error (undefined local variable or method `resource_name' for #<#<Class:0x103b37938>:0x103b35c50>):
+    1: <%- if controller_name != 'sessions' %>
+    2:   <%= link_to "Sign in", new_session_path(resource_name) %><br />
+    3: <% end -%>
+    4: 
+    5: <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  app/views/devise/shared/_links.erb:2:in `_app_views_devise_shared__links_erb__628768406_2178409100_2126910'
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__594484792_2178520660_0'
+  app/controllers/posts_controller.rb:7:in `index'
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (22.0ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (58.7ms)
+
+
+Started GET "/posts/" for 127.0.0.1 at Wed Sep 11 11:13:39 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.7ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered devise/shared/_links.erb (12.2ms)
+Rendered posts/index.html.erb within layouts/application (33.7ms)
+Completed 500 Internal Server Error in 196ms
+
+ActionView::Template::Error (undefined local variable or method `devise_mapping' for #<#<Class:0x1040d2348>:0x1040ccb50>):
+    2:   <%#= link_to "Sign in", new_session_path(resource_name) %><br />
+    3: <% end -%>
+    4: 
+    5: <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+    6:   <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+    7: <% end -%>
+    8: 
+  app/views/devise/shared/_links.erb:5:in `_app_views_devise_shared__links_erb__628768406_2181185880_2126910'
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__594484792_2181444220_0'
+  app/controllers/posts_controller.rb:7:in `index'
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (23.5ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (42.1ms)
+
+
+Started GET "/posts/" for 127.0.0.1 at Wed Sep 11 13:13:40 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+Rendered devise/shared/_links.erb (12.3ms)
+Rendered posts/index.html.erb within layouts/application (33.0ms)
+Completed 500 Internal Server Error in 235ms
+
+ActionView::Template::Error (undefined local variable or method `devise_mapping' for #<#<Class:0x103fb9538>:0x103fb7710>):
+    2:   <%#= link_to "Sign in", new_session_path(resource_name) %><br />
+    3: <% end -%>
+    4: 
+    5: <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+    6:   <%#= link_to "Sign up", new_registration_path(resource_name) %><br />
+    7: <% end -%>
+    8: 
+  app/views/devise/shared/_links.erb:5:in `_app_views_devise_shared__links_erb__628768406_2180670240_2126910'
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__594484792_2180883120_0'
+  app/controllers/posts_controller.rb:7:in `index'
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.7ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (86.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Wed Sep 11 13:13:53 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered devise/shared/_links.erb (12.1ms)
+Rendered posts/index.html.erb within layouts/application (31.4ms)
+Completed 500 Internal Server Error in 55ms
+
+ActionView::Template::Error (undefined local variable or method `devise_mapping' for #<#<Class:0x103f29000>:0x103f265f8>):
+    2:   <%#= link_to "Sign in", new_session_path(resource_name) %><br />
+    3: <% end -%>
+    4: 
+    5: <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+    6:   <%#= link_to "Sign up", new_registration_path(resource_name) %><br />
+    7: <% end -%>
+    8: 
+  app/views/devise/shared/_links.erb:5:in `_app_views_devise_shared__links_erb__628768406_2180443560_2126910'
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__594484792_2180585620_0'
+  app/controllers/posts_controller.rb:7:in `index'
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.8ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (24.6ms)
+
+
+Started GET "/posts/" for 127.0.0.1 at Wed Sep 11 13:14:13 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.7ms)[0m  SELECT "posts".* FROM "posts"
+Rendered devise/shared/_links.erb (12.8ms)
+Rendered posts/index.html.erb within layouts/application (33.8ms)
+Completed 500 Internal Server Error in 59ms
+
+ActionView::Template::Error (undefined local variable or method `devise_mapping' for #<#<Class:0x103ec1a90>:0x103ebfd58>):
+    2:   <%#= link_to "Sign in", new_session_path(resource_name) %><br />
+    3: <% end -%>
+    4: 
+    5: <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+    6:   <%#= link_to "Sign up", new_registration_path(resource_name) %><br />
+    7: <% end -%>
+    8: 
+  app/views/devise/shared/_links.erb:5:in `_app_views_devise_shared__links_erb__628768406_2180141080_2126910'
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__594484792_2180376200_0'
+  app/controllers/posts_controller.rb:7:in `index'
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.9ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (29.5ms)
+
+
+Started GET "/posts/" for 127.0.0.1 at Wed Sep 11 13:14:17 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.7ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered devise/shared/_links.erb (12.9ms)
+Rendered posts/index.html.erb within layouts/application (61.2ms)
+Completed 500 Internal Server Error in 148ms
+
+ActionView::Template::Error (undefined local variable or method `devise_mapping' for #<#<Class:0x103de4e88>:0x103de31a0>):
+    2:   <%#= link_to "Sign in", new_session_path(resource_name) %><br />
+    3: <% end -%>
+    4: 
+    5: <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+    6:   <%#= link_to "Sign up", new_registration_path(resource_name) %><br />
+    7: <% end -%>
+    8: 
+  app/views/devise/shared/_links.erb:5:in `_app_views_devise_shared__links_erb__628768406_2179627700_2126910'
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__594484792_2179924200_0'
+  app/controllers/posts_controller.rb:7:in `index'
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.1ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (26.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Thu Sep 12 15:17:09 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (40.6ms)[0m  SELECT "posts".* FROM "posts"
+Rendered devise/shared/_links.erb (677.7ms)
+Rendered posts/index.html.erb within layouts/application (2781.9ms)
+Completed 500 Internal Server Error in 3457ms
+
+ActionView::Template::Error (undefined local variable or method `devise_mapping' for #<#<Class:0x103d46b48>:0x103d3d728>):
+    2:   <%#= link_to "Sign in", new_session_path(resource_name) %><br />
+    3: <% end -%>
+    4: 
+    5: <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+    6:   <%#= link_to "Sign up", new_registration_path(resource_name) %><br />
+    7: <% end -%>
+    8: 
+  app/views/devise/shared/_links.erb:5:in `_app_views_devise_shared__links_erb__628768406_2179273640_2126910'
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__594484792_2179566880_0'
+  app/controllers/posts_controller.rb:7:in `index'
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.6ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (50.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Thu Sep 12 15:20:19 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered devise/shared/_links.erb (85.8ms)
+Rendered posts/index.html.erb within layouts/application (108.2ms)
+Completed 500 Internal Server Error in 137ms
+
+ActionView::Template::Error (undefined local variable or method `resource_name' for #<#<Class:0x103ce08c0>:0x103cde750>):
+    1: <%- if controller_name != 'sessions' %>
+    2:   <%= link_to "Sign in", new_session_path(resource_name) %><br />
+    3: <% end -%>
+    4: 
+    5: <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  app/views/devise/shared/_links.erb:2:in `_app_views_devise_shared__links_erb__628768406_2179050380_2126910'
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__594484792_2179367420_0'
+  app/controllers/posts_controller.rb:7:in `index'
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (24.9ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (67.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Thu Sep 12 15:20:21 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+Rendered devise/shared/_links.erb (13.2ms)
+Rendered posts/index.html.erb within layouts/application (36.2ms)
+Completed 500 Internal Server Error in 127ms
+
+ActionView::Template::Error (undefined local variable or method `resource_name' for #<#<Class:0x1040e6618>:0x1040e35d0>):
+    1: <%- if controller_name != 'sessions' %>
+    2:   <%= link_to "Sign in", new_session_path(resource_name) %><br />
+    3: <% end -%>
+    4: 
+    5: <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  app/views/devise/shared/_links.erb:2:in `_app_views_devise_shared__links_erb__628768406_2181262720_2126910'
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__594484792_2181490100_0'
+  app/controllers/posts_controller.rb:7:in `index'
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.3ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (29.8ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Thu Sep 12 15:21:09 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered devise/shared/_links.erb (12.2ms)
+Rendered posts/index.html.erb within layouts/application (50.1ms)
+Completed 500 Internal Server Error in 76ms
+
+ActionView::Template::Error (undefined local variable or method `resource_name' for #<#<Class:0x103fdf1e8>:0x103fdd438>):
+    1: <%- if controller_name != 'sessions' %>
+    2:   <%= link_to "Sign in", new_session_path(resource_name) %><br />
+    3: <% end -%>
+    4: 
+    5: <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  app/views/devise/shared/_links.erb:2:in `_app_views_devise_shared__links_erb__628768406_2180773080_2126910'
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__594484792_2180954560_0'
+  app/controllers/posts_controller.rb:7:in `index'
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.8ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (85.3ms)
+
+
+Started GET "/posts/" for 127.0.0.1 at Thu Sep 12 15:21:28 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+Rendered devise/shared/_links.erb (11.8ms)
+Rendered posts/index.html.erb within layouts/application (35.3ms)
+Completed 500 Internal Server Error in 84ms
+
+ActionView::Template::Error (undefined local variable or method `resource_name' for #<#<Class:0x103f3fb20>:0x103f3aa80>):
+    1: <%- if controller_name != 'sessions' %>
+    2:   <%= link_to "Sign in", new_session_path(resource_name) %><br />
+    3: <% end -%>
+    4: 
+    5: <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  app/views/devise/shared/_links.erb:2:in `_app_views_devise_shared__links_erb__628768406_2180472480_2126910'
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__594484792_2180626060_0'
+  app/controllers/posts_controller.rb:7:in `index'
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.0ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (88.8ms)
+
+
+Started GET "/posts/" for 127.0.0.1 at Thu Sep 12 15:21:35 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered devise/shared/_links.erb (11.7ms)
+Rendered posts/index.html.erb within layouts/application (32.7ms)
+Completed 500 Internal Server Error in 57ms
+
+ActionView::Template::Error (undefined local variable or method `resource_name' for #<#<Class:0x103f08440>:0x103f05f88>):
+    1: <%- if controller_name != 'sessions' %>
+    2:   <%= link_to "Sign in", new_session_path(resource_name) %><br />
+    3: <% end -%>
+    4: 
+    5: <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  app/views/devise/shared/_links.erb:2:in `_app_views_devise_shared__links_erb__628768406_2180378480_2126910'
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__594484792_2180519600_0'
+  app/controllers/posts_controller.rb:7:in `index'
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (14.0ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (35.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Thu Sep 12 15:23:00 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+Rendered devise/shared/_links.erb (12.7ms)
+Rendered posts/index.html.erb within layouts/application (32.9ms)
+Completed 500 Internal Server Error in 59ms
+
+ActionView::Template::Error (undefined local variable or method `resource_name' for #<#<Class:0x103df4950>:0x103defea0>):
+    1: <%- if controller_name != 'sessions' %>
+    2:   <%= link_to "Sign in", new_session_path(resource_name) %><br />
+    3: <% end -%>
+    4: 
+    5: <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  app/views/devise/shared/_links.erb:2:in `_app_views_devise_shared__links_erb__628768406_2179647680_2126910'
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__594484792_2179936820_0'
+  app/controllers/posts_controller.rb:7:in `index'
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.9ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (24.4ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at Thu Sep 12 15:23:27 -0400 2013
+  Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1[0m
+Rendered posts/_form.html.erb (32.8ms)
+Rendered devise/shared/_links.erb (12.1ms)
+Rendered posts/edit.html.erb within layouts/application (125.3ms)
+Completed 500 Internal Server Error in 168ms
+
+ActionView::Template::Error (undefined local variable or method `resource_name' for #<#<Class:0x103db5fe8>:0x103db0a20>):
+    1: <%- if controller_name != 'sessions' %>
+    2:   <%= link_to "Sign in", new_session_path(resource_name) %><br />
+    3: <% end -%>
+    4: 
+    5: <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  app/views/devise/shared/_links.erb:2:in `_app_views_devise_shared__links_erb__628768406_2179394440_2126910'
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__594484792_2179817420_0'
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.5ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (27.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Thu Sep 12 15:23:59 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.8ms)[0m  SELECT "posts".* FROM "posts"
+Rendered devise/shared/_links.erb (73.7ms)
+Rendered posts/index.html.erb within layouts/application (94.2ms)
+Completed 500 Internal Server Error in 119ms
+
+ActionView::Template::Error (undefined local variable or method `resource_name' for #<#<Class:0x103d05c88>:0x103d01cc8>):
+    1: <%- if controller_name != 'sessions' %>
+    2:   <%= link_to "Sign in", new_session_path(resource_name) %><br />
+    3: <% end -%>
+    4: 
+    5: <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  app/views/devise/shared/_links.erb:2:in `_app_views_devise_shared__links_erb__628768406_2179153560_2126910'
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__594484792_2179457160_0'
+  app/controllers/posts_controller.rb:7:in `index'
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.6ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (28.6ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Thu Sep 12 15:24:05 -0400 2013
+  Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (7.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 120ms
+
+
+Started GET "/rails/info/properties" for 127.0.0.1 at Thu Sep 12 15:24:11 -0400 2013
+  Processing by Rails::InfoController#properties as 
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (18.5ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Rendered inline template (0.4ms)
+Completed 200 OK in 146ms (Views: 1.6ms | ActiveRecord: 26.4ms)
+
+
+Started GET "/rails/info/properties" for 127.0.0.1 at Thu Sep 12 15:24:27 -0400 2013
+  Processing by Rails::InfoController#properties as 
+Rendered inline template (0.3ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/info/properties" for 127.0.0.1 at Thu Sep 12 15:24:29 -0400 2013
+  Processing by Rails::InfoController#properties as 
+Rendered inline template (0.3ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/info/properties" for 127.0.0.1 at Thu Sep 12 15:25:31 -0400 2013
+  Processing by Rails::InfoController#properties as 
+Rendered inline template (0.3ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/info/properties" for 127.0.0.1 at Thu Sep 12 15:25:32 -0400 2013
+  Processing by Rails::InfoController#properties as 
+Rendered inline template (0.3ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/info/properties" for 127.0.0.1 at Thu Sep 12 15:25:32 -0400 2013
+  Processing by Rails::InfoController#properties as 
+Rendered inline template (0.3ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at Thu Sep 12 15:27:36 -0400 2013
+
+ActionController::RoutingError (No route matches "/users/sign_out"):
+  
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Thu Sep 12 15:53:19 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 133ms (Views: 126.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Fri Sep 13 09:11:06 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 24ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Fri Sep 13 09:11:19 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 22ms
+
+
+Started GET "/posts/1" for 127.0.0.1 at Fri Sep 13 09:11:30 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (15.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 190ms (Views: 37.1ms | ActiveRecord: 16.0ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at Fri Sep 13 09:11:40 -0400 2013
+  Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1
+Rendered posts/_form.html.erb (9.3ms)
+Rendered posts/edit.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 32ms (Views: 24.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/posts/1" for 127.0.0.1 at Fri Sep 13 09:12:18 -0400 2013
+  Processing by PostsController#update as HTML
+  Parameters: {"commit"=>"Update Post", "post"=>{"Body"=>"This is my first post!! Can I Still editit", "Title"=>"First Post in Rails Application"}, "authenticity_token"=>"yYS6sXL4+vVpfT/RGcXA4xOo52LSbC1CAMvil+9ipAw=", "utf8"=>"✓", "id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "posts" SET "updated_at" = '2013-09-13 13:12:18.948109', "Body" = 'This is my first post!! Can I Still editit' WHERE "posts"."id" = 1
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 198ms
+
+
+Started GET "/posts/1" for 127.0.0.1 at Fri Sep 13 09:12:19 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 28ms (Views: 17.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Fri Sep 13 09:12:26 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 22ms
+
+
+Started GET "/posts" for 127.0.0.1 at Fri Sep 13 09:12:39 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 48ms (Views: 40.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at Fri Sep 13 09:12:47 -0400 2013
+  Processing by PostsController#new as HTML
+Rendered posts/_form.html.erb (33.6ms)
+Rendered posts/new.html.erb within layouts/application (39.2ms)
+Completed 200 OK in 128ms (Views: 121.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at Fri Sep 13 09:13:09 -0400 2013
+  Processing by PostsController#create as HTML
+  Parameters: {"commit"=>"Create Post", "post"=>{"Body"=>"This is it", "Title"=>"Second Post"}, "authenticity_token"=>"yYS6sXL4+vVpfT/RGcXA4xOo52LSbC1CAMvil+9ipAw=", "utf8"=>"✓"}
+  [1m[35mAREL (1.5ms)[0m  INSERT INTO "posts" ("updated_at", "Body", "created_at", "Title") VALUES ('2013-09-13 13:13:09.859741', 'This is it', '2013-09-13 13:13:09.859741', 'Second Post')
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 74ms
+
+
+Started GET "/posts/3" for 127.0.0.1 at Fri Sep 13 09:13:09 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 3 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 24ms (Views: 16.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Fri Sep 13 09:13:17 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 27ms (Views: 19.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Fri Sep 13 09:44:50 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 21ms
+
+
+Started GET "/posts" for 127.0.0.1 at Fri Sep 13 09:45:02 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 108ms (Views: 101.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts/3" for 127.0.0.1 at Fri Sep 13 09:45:12 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 3 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 25ms (Views: 17.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/3" for 127.0.0.1 at Fri Sep 13 11:11:04 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.8ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 3 LIMIT 1
+Rendered posts/show.html.erb within layouts/application (40.8ms)
+Completed 200 OK in 94ms (Views: 57.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts/3" for 127.0.0.1 at Fri Sep 13 11:15:50 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 3 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 343ms (Views: 19.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Fri Sep 13 11:18:26 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 96ms (Views: 88.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Fri Sep 13 12:16:53 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (9.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 119ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Fri Sep 13 12:17:01 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 23ms
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from service at /Users/flagship8787/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:104)
+
+
+Started GET "/user/" for 127.0.0.1 at Fri Sep 13 13:34:30 -0400 2013
+
+ActionController::RoutingError (No route matches "/user"):
+  
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/users/" for 127.0.0.1 at Fri Sep 13 13:34:48 -0400 2013
+
+ActionController::RoutingError (No route matches "/users"):
+  
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/users/log_in" for 127.0.0.1 at Fri Sep 13 13:35:13 -0400 2013
+
+ActionController::RoutingError (No route matches "/users/log_in"):
+  
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Fri Sep 13 13:35:51 -0400 2013
+  Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (19.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 285ms
+
+
+Started GET "/posts" for 127.0.0.1 at Fri Sep 13 13:36:13 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 39ms (Views: 30.8ms | ActiveRecord: 21.0ms)
+
+
+Started GET "/posts/3/edit" for 127.0.0.1 at Fri Sep 13 13:39:26 -0400 2013
+  Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 3 LIMIT 1
+Rendered posts/_form.html.erb (10.0ms)
+Rendered posts/edit.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 35ms (Views: 25.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/" for 127.0.0.1 at Fri Sep 13 13:43:01 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (101.8ms)
+Completed 200 OK in 119ms (Views: 111.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/3/edit" for 127.0.0.1 at Fri Sep 13 14:59:41 -0400 2013
+  Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 3 LIMIT 1
+Rendered posts/_form.html.erb (9.2ms)
+Rendered posts/edit.html.erb within layouts/application (35.1ms)
+Completed 200 OK in 70ms (Views: 60.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/sign_out" for 127.0.0.1 at Fri Sep 13 15:00:06 -0400 2013
+  Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"yYS6sXL4+vVpfT/RGcXA4xOo52LSbC1CAMvil+9ipAw="}
+  [1m[36mUser Load (10.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "updated_at" = '2013-09-13 19:00:06.705313', "remember_created_at" = NULL WHERE "users"."id" = 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 230ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Fri Sep 13 15:00:26 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (2.0ms)
+Rendered devise/sessions/new.html.erb within layouts/application (43.4ms)
+Completed 200 OK in 147ms (Views: 128.4ms | ActiveRecord: 10.6ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Fri Sep 13 16:13:51 -0400 2013
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"/YriKg3IbgAJLmzX2+aZbFBVqXRhL/iz5/A1T7Zw6Sg=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'ira@ipvstudio.com' LIMIT 1[0m
+  [1m[35mAREL (19.1ms)[0m  UPDATE "users" SET "last_sign_in_at" = '2013-09-11 00:27:09.139612', "updated_at" = '2013-09-13 20:13:51.674022', "current_sign_in_at" = '2013-09-13 20:13:51.673226', "sign_in_count" = 4 WHERE "users"."id" = 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 356ms
+
+
+Started GET "/posts" for 127.0.0.1 at Fri Sep 13 16:14:07 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.7ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 65ms (Views: 43.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/user/" for 127.0.0.1 at Fri Sep 13 16:15:52 -0400 2013
+
+ActionController::RoutingError (No route matches "/user"):
+  
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/posts/" for 127.0.0.1 at Fri Sep 13 16:16:06 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 27ms (Views: 20.7ms | ActiveRecord: 0.6ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/flagship8787/Desktop/RailsProject/config/environment.rb:5)
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (22.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (33.5ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "Title" varchar(255), "Body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.9ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (2.5ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (2.9ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (2.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (2.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130910235151')
+  [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130731192808')[0m
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/flagship8787/Desktop/RailsProject/config/environment.rb:5)
+
+
+Started GET "/posts/" for 127.0.0.1 at Fri Sep 13 19:52:59 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.8ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 58ms (Views: 49.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Fri Sep 13 19:53:05 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 144ms
+
+
+Started POST "/users/sign_out" for 127.0.0.1 at Fri Sep 13 19:53:12 -0400 2013
+  Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/YriKg3IbgAJLmzX2+aZbFBVqXRhL/iz5/A1T7Zw6Sg="}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 48ms
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Fri Sep 13 19:53:32 -0400 2013
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/registrations/new.html.erb within layouts/application (44.6ms)
+Completed 200 OK in 116ms (Views: 105.0ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at Fri Sep 13 19:53:44 -0400 2013
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"commit"=>"Sign up", "authenticity_token"=>"Aakz6TMtgqdtBnkHz6uXJysrUJsPcNzWYenXQ6tEAu8=", "utf8"=>"✓", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+  [1m[36mSQL (17.1ms)[0m  [1mSELECT 1 FROM "users" WHERE ("users"."email" = 'ira@ipvstudio.com') LIMIT 1[0m
+Rendered devise/shared/_links.erb (2.3ms)
+Rendered devise/registrations/new.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 209ms (Views: 26.1ms | ActiveRecord: 17.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Fri Sep 13 19:53:53 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 112ms (Views: 91.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Fri Sep 13 19:53:56 -0400 2013
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"Aakz6TMtgqdtBnkHz6uXJysrUJsPcNzWYenXQ6tEAu8=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'ira@ipvstudio.com' LIMIT 1
+  [1m[36mAREL (0.6ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = '2013-09-13 20:13:51.673226', "current_sign_in_at" = '2013-09-13 23:53:56.407145', "updated_at" = '2013-09-13 23:53:56.407866', "sign_in_count" = 5 WHERE "users"."id" = 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 215ms
+
+
+Started GET "/posts" for 127.0.0.1 at Fri Sep 13 19:54:06 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 104ms (Views: 20.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Sat Sep 14 06:24:41 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (9.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 42ms
+
+
+Started POST "/users/sign_out" for 127.0.0.1 at Sat Sep 14 06:24:55 -0400 2013
+  Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Aakz6TMtgqdtBnkHz6uXJysrUJsPcNzWYenXQ6tEAu8="}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 24ms
+
+
+Started GET "/posts" for 127.0.0.1 at Sat Sep 14 06:25:12 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (16.7ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 204ms (Views: 65.3ms | ActiveRecord: 25.9ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at Sat Sep 14 06:25:21 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1
+Rendered posts/show.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 100ms (Views: 92.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Sat Sep 14 06:25:26 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (2.2ms)
+Rendered devise/sessions/new.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 73ms (Views: 54.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Sat Sep 14 06:25:32 -0400 2013
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/registrations/new.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 48ms (Views: 36.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at Sat Sep 14 06:25:35 -0400 2013
+  Processing by Devise::PasswordsController#new as HTML
+Rendered devise/shared/_links.erb (2.0ms)
+Rendered devise/passwords/new.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 39ms (Views: 28.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Sat Sep 14 06:25:47 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (2.0ms)
+Rendered devise/sessions/new.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 118ms (Views: 97.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Sat Sep 14 06:25:50 -0400 2013
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"ndXIrzQ32cN9gKO+QPWjwiqC946bi2L2ndxRkMDMihM=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+  [1m[36mUser Load (11.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'ira@ipvstudio.com' LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "sign_in_count" = 6, "last_sign_in_at" = '2013-09-13 23:53:56.407145', "updated_at" = '2013-09-14 10:25:50.872205', "current_sign_in_at" = '2013-09-14 10:25:50.871478' WHERE "users"."id" = 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 167ms
+
+
+Started GET "/posts" for 127.0.0.1 at Sat Sep 14 06:26:06 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.7ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 27ms (Views: 20.3ms | ActiveRecord: 0.7ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/flagship8787/Desktop/RailsProject/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/flagship8787/Desktop/RailsProject/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/flagship8787/Desktop/RailsProject/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/flagship8787/Desktop/RailsProject/config/environment.rb:5)
+
+
+Started GET "/posts" for 127.0.0.1 at Sat Sep 14 07:04:20 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (93.9ms)
+Completed 200 OK in 127ms (Views: 118.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Sat Sep 14 07:04:47 -0400 2013
+  Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 21ms
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Sat Sep 14 07:05:11 -0400 2013
+  Processing by Devise::RegistrationsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 97ms
+
+
+Started GET "/posts" for 127.0.0.1 at Sat Sep 14 07:05:21 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 27ms (Views: 20.7ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/users/sign_out" for 127.0.0.1 at Sat Sep 14 07:05:24 -0400 2013
+  Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ndXIrzQ32cN9gKO+QPWjwiqC946bi2L2ndxRkMDMihM="}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 23ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Sat Sep 14 07:05:36 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (2.3ms)
+Rendered devise/sessions/new.html.erb within layouts/application (20.9ms)
+Completed 200 OK in 138ms (Views: 42.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Sat Sep 14 07:05:43 -0400 2013
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"AnoaSoaTLoHjuzPQ+fG7M/Q35N98ll7N7kBJAKryvNs=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+  [1m[36mUser Load (58.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'ira@ipvstudio.com' LIMIT 1[0m
+  [1m[35mAREL (0.6ms)[0m  UPDATE "users" SET "current_sign_in_at" = '2013-09-14 11:05:43.940026', "sign_in_count" = 7, "last_sign_in_at" = '2013-09-14 10:25:50.871478', "updated_at" = '2013-09-14 11:05:43.940776' WHERE "users"."id" = 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 220ms
+
+
+Started GET "/posts" for 127.0.0.1 at Sat Sep 14 07:10:59 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 55ms (Views: 43.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Sat Sep 14 07:11:05 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 38ms
+
+
+Started POST "/users/sign_out" for 127.0.0.1 at Sat Sep 14 07:11:11 -0400 2013
+  Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"AnoaSoaTLoHjuzPQ+fG7M/Q35N98ll7N7kBJAKryvNs="}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 24ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Sat Sep 14 07:11:23 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (20.5ms)
+Completed 200 OK in 61ms (Views: 42.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Sat Sep 14 07:11:26 -0400 2013
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"/9dFz7VC4OWWC+w/kow4ELhPrVPEb3t/ZkSEUUdoxGU=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+  [1m[35mUser Load (115.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'ira@ipvstudio.com' LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = '2013-09-14 11:11:26.940848', "last_sign_in_at" = '2013-09-14 11:05:43.940026', "sign_in_count" = 8, "updated_at" = '2013-09-14 11:11:26.941606' WHERE "users"."id" = 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 271ms
+
+
+Started GET "/posts" for 127.0.0.1 at Sat Sep 14 07:11:35 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 29ms (Views: 21.4ms | ActiveRecord: 0.6ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/flagship8787/Desktop/RailsProject/config/environment.rb:5)
+
+
+Started GET "/posts" for 127.0.0.1 at Sat Sep 14 15:14:15 -0400 2013
+
+SyntaxError (/Users/flagship8787/Desktop/RailsProject/app/controllers/posts_controller.rb:4: syntax error, unexpected '=', expecting kEND
+  before_filter :authenticate_user!, :except =. [:show, :index]
+                                              ^):
+  
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Sat Sep 14 15:15:22 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (17.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 180ms (Views: 51.8ms | ActiveRecord: 17.3ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at Sat Sep 14 15:15:36 -0400 2013
+  Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (10.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1[0m
+Rendered posts/_form.html.erb (27.9ms)
+Rendered posts/edit.html.erb within layouts/application (35.5ms)
+Completed 200 OK in 118ms (Views: 59.2ms | ActiveRecord: 10.4ms)
+
+
+Started POST "/users/sign_out" for 127.0.0.1 at Sat Sep 14 15:15:40 -0400 2013
+  Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/9dFz7VC4OWWC+w/kow4ELhPrVPEb3t/ZkSEUUdoxGU="}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 42ms
+
+
+Started GET "/posts" for 127.0.0.1 at Sat Sep 14 15:15:51 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.7ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 28ms (Views: 21.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at Sat Sep 14 15:15:58 -0400 2013
+  Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+Completed   in 9ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Sat Sep 14 15:15:58 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 175ms (Views: 73.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Sat Sep 14 15:32:10 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/sessions/new.html.erb within layouts/application (12.7ms)
+Completed 500 Internal Server Error in 53ms
+
+ActionView::Template::Error (undefined method `title' for #<#<Class:0x1041e9538>:0x1041e75d0>):
+    1: <% title "Sign In" %>
+    2: 
+    3: <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    4:   <p><%= f.label :email %><br />
+  app/views/devise/sessions/new.html.erb:1:in `_app_views_devise_sessions_new_html_erb___2090740900_2182028020_0'
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.2ms)
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (28.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Sat Sep 14 15:34:17 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (17.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (74.9ms)
+Completed 200 OK in 165ms (Views: 84.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Sat Sep 14 15:34:46 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 39ms (Views: 31.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at Sat Sep 14 15:34:50 -0400 2013
+  Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+Completed   in 9ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Sat Sep 14 15:34:50 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 46ms (Views: 23.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Sat Sep 14 15:36:43 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 30ms (Views: 23.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at Sat Sep 14 15:36:48 -0400 2013
+  Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+Completed   in 9ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Sat Sep 14 15:36:48 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (2.0ms)
+Rendered devise/sessions/new.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 112ms (Views: 22.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Sat Sep 14 15:47:52 -0400 2013
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"pqMo9F74lvZA2L0W7yqscBada7a7WHPoqBgDnpL5enY=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio"}}
+Completed   in 10ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"pqMo9F74lvZA2L0W7yqscBada7a7WHPoqBgDnpL5enY=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio"}}
+Rendered devise/shared/_links.erb (1.9ms)
+Rendered devise/sessions/new.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 34ms (Views: 21.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Sat Sep 14 16:01:52 -0400 2013
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"pqMo9F74lvZA2L0W7yqscBada7a7WHPoqBgDnpL5enY=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio"}}
+Completed   in 10ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"pqMo9F74lvZA2L0W7yqscBada7a7WHPoqBgDnpL5enY=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio"}}
+Rendered devise/shared/_links.erb (2.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 38ms (Views: 23.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Sat Sep 14 16:02:31 -0400 2013
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"pqMo9F74lvZA2L0W7yqscBada7a7WHPoqBgDnpL5enY=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio"}}
+Completed   in 9ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"pqMo9F74lvZA2L0W7yqscBada7a7WHPoqBgDnpL5enY=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio"}}
+Rendered devise/shared/_links.erb (1.9ms)
+Rendered devise/sessions/new.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 33ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Sat Sep 14 16:03:03 -0400 2013
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (2.2ms)
+Rendered devise/registrations/new.html.erb within layouts/application (97.2ms)
+Completed 200 OK in 147ms (Views: 136.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at Sat Sep 14 16:04:47 -0400 2013
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"commit"=>"Sign up", "authenticity_token"=>"pqMo9F74lvZA2L0W7yqscBada7a7WHPoqBgDnpL5enY=", "utf8"=>"✓", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>""}}
+Rendered devise/shared/_links.erb (2.0ms)
+Rendered devise/registrations/new.html.erb within layouts/application (284.3ms)
+Completed 200 OK in 319ms (Views: 294.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at Sat Sep 14 16:05:45 -0400 2013
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"commit"=>"Sign up", "authenticity_token"=>"pqMo9F74lvZA2L0W7yqscBada7a7WHPoqBgDnpL5enY=", "utf8"=>"✓", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+  [1m[35mSQL (19.2ms)[0m  SELECT 1 FROM "users" WHERE ("users"."email" = 'ira@ipvstudio.com') LIMIT 1
+Rendered devise/shared/_links.erb (2.4ms)
+Rendered devise/registrations/new.html.erb within layouts/application (92.0ms)
+Completed 200 OK in 264ms (Views: 103.1ms | ActiveRecord: 19.2ms)
+
+
+Started GET "/users/register_ira" for 127.0.0.1 at Sat Sep 14 16:21:13 -0400 2013
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/registrations/new.html.erb within layouts/application (53.5ms)
+Completed 200 OK in 108ms (Views: 103.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Sat Sep 14 16:24:08 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 58ms (Views: 37.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Sat Sep 14 16:24:14 -0400 2013
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"pqMo9F74lvZA2L0W7yqscBada7a7WHPoqBgDnpL5enY=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+  [1m[36mUser Load (4.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'ira@ipvstudio.com' LIMIT 1[0m
+  [1m[35mAREL (19.8ms)[0m  UPDATE "users" SET "sign_in_count" = 9, "last_sign_in_at" = '2013-09-14 11:11:26.940848', "current_sign_in_at" = '2013-09-14 20:24:14.178377', "updated_at" = '2013-09-14 20:24:14.179099' WHERE "users"."id" = 1
+Redirected to http://localhost:3000/posts/1/edit
+Completed 302 Found in 256ms
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at Sat Sep 14 16:24:14 -0400 2013
+  Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mPost Load (49.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1
+Rendered posts/_form.html.erb (86.1ms)
+Rendered posts/edit.html.erb within layouts/application (93.4ms)
+Completed 200 OK in 239ms (Views: 146.9ms | ActiveRecord: 49.5ms)
+
+
+Started POST "/posts/1" for 127.0.0.1 at Sat Sep 14 16:24:37 -0400 2013
+  Processing by PostsController#update as HTML
+  Parameters: {"commit"=>"Update Post", "post"=>{"Body"=>"This is my first post!! Can I Still edit it ", "Title"=>"First Post in Rails Application"}, "authenticity_token"=>"pqMo9F74lvZA2L0W7yqscBada7a7WHPoqBgDnpL5enY=", "utf8"=>"✓", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "posts" SET "updated_at" = '2013-09-14 20:24:37.073166', "Body" = 'This is my first post!! Can I Still edit it ' WHERE "posts"."id" = 1[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 40ms
+
+
+Started GET "/posts/1" for 127.0.0.1 at Sat Sep 14 16:24:37 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1
+Rendered posts/show.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 42ms (Views: 32.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Sat Sep 14 16:24:42 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 29ms (Views: 22.4ms | ActiveRecord: 0.6ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/flagship8787/Desktop/RailsProject/config/environment.rb:5)
+
+
+Started GET "/posts" for 127.0.0.1 at Mon Sep 16 12:11:15 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 70ms (Views: 61.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Mon Sep 16 12:18:32 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (21.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 170ms
+
+
+Started GET "/posts" for 127.0.0.1 at Mon Sep 16 12:18:50 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (16.6ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 84ms (Views: 44.1ms | ActiveRecord: 38.9ms)
+
+
+Started POST "/users/sign_out" for 127.0.0.1 at Mon Sep 16 12:18:54 -0400 2013
+  Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"pqMo9F74lvZA2L0W7yqscBada7a7WHPoqBgDnpL5enY="}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 45ms
+
+
+Started GET "/posts" for 127.0.0.1 at Mon Sep 16 12:19:03 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.7ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 28ms (Views: 20.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Mon Sep 16 12:19:09 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (2.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (111.5ms)
+Completed 200 OK in 238ms (Views: 218.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Mon Sep 16 12:19:12 -0400 2013
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"lTC0Xos7Sy1eb0wVJKjI2mM7TaGzPuSxV4oQly1sb/0=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+  [1m[36mUser Load (37.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'ira@ipvstudio.com' LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "last_sign_in_at" = '2013-09-14 20:24:14.178377', "sign_in_count" = 10, "current_sign_in_at" = '2013-09-16 16:19:13.115176', "updated_at" = '2013-09-16 16:19:13.115961' WHERE "users"."id" = 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 268ms
+
+
+Started GET "/users/register_ira" for 127.0.0.1 at Mon Sep 16 12:54:04 -0400 2013
+  Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (22.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 76ms
+
+
+Started GET "/users/register_ira" for 127.0.0.1 at Mon Sep 16 12:54:28 -0400 2013
+  Processing by Devise::RegistrationsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 23ms
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Mon Sep 16 12:54:38 -0400 2013
+
+ActionController::RoutingError (No route matches "/users/sign_up"):
+  
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@Rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/users/register_ira" for 127.0.0.1 at Mon Sep 16 12:54:57 -0400 2013
+  Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 20ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Mon Sep 16 12:55:09 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 99ms
+
+
+Started GET "/posts" for 127.0.0.1 at Mon Sep 16 12:55:18 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (17.0ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 106ms (Views: 66.9ms | ActiveRecord: 39.8ms)
+
+
+Started POST "/users/sign_out" for 127.0.0.1 at Mon Sep 16 12:55:22 -0400 2013
+  Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"lTC0Xos7Sy1eb0wVJKjI2mM7TaGzPuSxV4oQly1sb/0="}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 24ms
+
+
+Started GET "/users/register_ira" for 127.0.0.1 at Mon Sep 16 12:55:29 -0400 2013
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/registrations/new.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 163ms (Views: 151.5ms | ActiveRecord: 0.3ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/flagship8787/Desktop/RailsProject/config/environment.rb:5)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (2.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (2.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreatePosts (20130731192808)
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "Title" varchar(255), "Body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130731192808')
+Migrating to DeviseCreateUsers (20130910235151)
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "role" varchar(255) DEFAULT 'webmaster', "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130910235151')[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("posts")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_reset_password_token')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/flagship8787/Desktop/RailsProject/config/environment.rb:5)
+
+
+Started GET "/posts" for 127.0.0.1 at Tue Sep 17 06:49:53 -0400 2013
+
+ActionController::RoutingError (undefined method `before_filter' for main:Object):
+  app/controllers/application_controller.rb:5
+  app/controllers/posts_controller.rb:1
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@Rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Sep 17 06:50:16 -0400 2013
+
+ActionController::RoutingError (undefined method `before_filter' for main:Object):
+  app/controllers/application_controller.rb:5
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@Rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Tue Sep 17 06:50:49 -0400 2013
+
+ActionController::RoutingError (undefined method `before_filter' for main:Object):
+  app/controllers/application_controller.rb:5
+  app/controllers/posts_controller.rb:1
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@Rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Tue Sep 17 06:54:28 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.7ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 61ms (Views: 42.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Sep 17 06:54:34 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (99.8ms)
+Completed 200 OK in 146ms (Views: 121.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Tue Sep 17 06:54:40 -0400 2013
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"oI4sCd5+Ecs44fVMnUfp5d9vjKt0dBe1SSwu93aP8eQ=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+  [1m[35mSQL (0.7ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'ira@ipvstudio.com' LIMIT 1[0m
+Completed   in 50ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"oI4sCd5+Ecs44fVMnUfp5d9vjKt0dBe1SSwu93aP8eQ=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+Rendered devise/shared/_links.erb (2.0ms)
+Rendered devise/sessions/new.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 144ms (Views: 21.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users/sign_out" for 127.0.0.1 at Tue Sep 17 06:55:05 -0400 2013
+  Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"oI4sCd5+Ecs44fVMnUfp5d9vjKt0dBe1SSwu93aP8eQ="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms
+
+
+Started GET "/posts" for 127.0.0.1 at Tue Sep 17 06:55:13 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 21ms (Views: 14.1ms | ActiveRecord: 0.6ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /Users/flagship8787/Desktop/RailsProject/config/environment.rb:5)
+
+
+Started GET "/posts" for 127.0.0.1 at Tue Sep 17 06:57:45 -0400 2013
+
+ActionController::RoutingError (undefined method `before_filter' for main:Object):
+  app/controllers/application_controller.rb:1
+  app/controllers/posts_controller.rb:1
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@Rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Tue Sep 17 07:08:17 -0400 2013
+
+ActionController::RoutingError (undefined method `before_filter' for main:Object):
+  app/controllers/application_controller.rb:1
+  app/controllers/posts_controller.rb:1
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@Rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Tue Sep 17 07:36:53 -0400 2013
+
+ActionController::RoutingError (undefined method `before_filter' for main:Object):
+  app/controllers/application_controller.rb:5
+  app/controllers/posts_controller.rb:1
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@Rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Tue Sep 17 07:37:13 -0400 2013
+
+ActionController::RoutingError (No route matches "/users/sign_up"):
+  
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@Rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/users/register_ira" for 127.0.0.1 at Tue Sep 17 07:37:44 -0400 2013
+
+ActionController::RoutingError (undefined method `before_filter' for main:Object):
+  app/controllers/application_controller.rb:5
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@Rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/users/register_ira" for 127.0.0.1 at Tue Sep 17 07:38:17 -0400 2013
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (2.0ms)
+Rendered devise/registrations/new.html.erb within layouts/application (105.9ms)
+Completed 200 OK in 144ms (Views: 131.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Sep 17 07:38:34 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (2.0ms)
+Rendered devise/sessions/new.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 44ms (Views: 24.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Sep 17 07:38:38 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (2.2ms)
+Rendered devise/sessions/new.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 47ms (Views: 25.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Tue Sep 17 07:38:40 -0400 2013
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"UvYXuH97tDZG465OONl9qJw+OW7CL/DUqtPoWcOqPhk=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'ira@ipvstudio.com' LIMIT 1
+Completed   in 44ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"UvYXuH97tDZG465OONl9qJw+OW7CL/DUqtPoWcOqPhk=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+Rendered devise/shared/_links.erb (2.0ms)
+Rendered devise/sessions/new.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 144ms (Views: 22.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Tue Sep 17 07:38:57 -0400 2013
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"UvYXuH97tDZG465OONl9qJw+OW7CL/DUqtPoWcOqPhk=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'ira@ipvstudio.com' LIMIT 1[0m
+Completed   in 12ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"UvYXuH97tDZG465OONl9qJw+OW7CL/DUqtPoWcOqPhk=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+Rendered devise/shared/_links.erb (1.9ms)
+Rendered devise/sessions/new.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 143ms (Views: 23.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/sign_out" for 127.0.0.1 at Tue Sep 17 07:39:08 -0400 2013
+  Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"UvYXuH97tDZG465OONl9qJw+OW7CL/DUqtPoWcOqPhk="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms
+
+
+Started GET "/posts" for 127.0.0.1 at Tue Sep 17 07:39:18 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 72ms (Views: 15.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at Tue Sep 17 07:39:32 -0400 2013
+  Processing by PostsController#new as HTML
+Completed   in 9ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Sep 17 07:39:32 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.9ms)
+Rendered devise/sessions/new.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 122ms (Views: 21.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Tue Sep 17 07:39:36 -0400 2013
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"FYKHliDX5wOlwW4mY018ACypwLJQWIV2PtsxJ2Dml/k=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'ira@ipvstudio.com' LIMIT 1[0m
+Completed   in 13ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"FYKHliDX5wOlwW4mY018ACypwLJQWIV2PtsxJ2Dml/k=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+Rendered devise/shared/_links.erb (2.0ms)
+Rendered devise/sessions/new.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 142ms (Views: 22.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Tue Sep 17 07:39:39 -0400 2013
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"FYKHliDX5wOlwW4mY018ACypwLJQWIV2PtsxJ2Dml/k=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'ira@ipvstudio.com' LIMIT 1
+Completed   in 12ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"FYKHliDX5wOlwW4mY018ACypwLJQWIV2PtsxJ2Dml/k=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (84.8ms)
+Completed 200 OK in 215ms (Views: 94.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/register_ira" for 127.0.0.1 at Tue Sep 17 07:39:49 -0400 2013
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (2.0ms)
+Rendered devise/registrations/new.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 46ms (Views: 33.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at Tue Sep 17 07:39:59 -0400 2013
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"commit"=>"Sign up", "authenticity_token"=>"FYKHliDX5wOlwW4mY018ACypwLJQWIV2PtsxJ2Dml/k=", "utf8"=>"✓", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT 1 FROM "users" WHERE ("users"."email" = 'ira@ipvstudio.com') LIMIT 1[0m
+  [1m[35mAREL (29.8ms)[0m  INSERT INTO "users" ("created_at", "current_sign_in_at", "reset_password_sent_at", "current_sign_in_ip", "last_sign_in_at", "updated_at", "role", "encrypted_password", "email", "reset_password_token", "sign_in_count", "remember_created_at", "last_sign_in_ip") VALUES ('2013-09-17 11:39:59.308267', NULL, NULL, NULL, NULL, '2013-09-17 11:39:59.308267', 'webmaster', '$2a$10$Nwcd.R2QhEnCRtLqPdV9I.wCfBWaxxpula911oLH3RHY1DpnCJhgW', 'ira@ipvstudio.com', NULL, 0, NULL, NULL)
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = '2013-09-17 11:39:59.383799', "current_sign_in_ip" = '127.0.0.1', "last_sign_in_at" = '2013-09-17 11:39:59.383799', "updated_at" = '2013-09-17 11:39:59.384489', "sign_in_count" = 1, "last_sign_in_ip" = '127.0.0.1' WHERE "users"."id" = 1[0m
+Redirected to http://localhost:3000/posts/new
+Completed 302 Found in 273ms
+
+
+Started GET "/posts/new" for 127.0.0.1 at Tue Sep 17 07:39:59 -0400 2013
+  Processing by PostsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered posts/_form.html.erb (10.0ms)
+Rendered posts/new.html.erb within layouts/application (35.7ms)
+Completed 200 OK in 87ms (Views: 61.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Tue Sep 17 07:45:03 -0400 2013
+
+ActionController::RoutingError (undefined method `before_filter' for main:Object):
+  app/controllers/application_controller.rb:5
+  app/controllers/posts_controller.rb:1
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@Rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Tue Sep 17 13:21:41 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mUser Load (15.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mPost Load (21.9ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (119.5ms)
+Completed 200 OK in 818ms (Views: 263.9ms | ActiveRecord: 37.8ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Tue Sep 17 13:22:10 -0400 2013
+
+ActionController::RoutingError (No route matches "/users/sign_up"):
+  
+
+Rendered /Users/flagship8787/.rvm/gems/ruby-1.8.7-p334@Rails3/gems/actionpack-3.0.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Sep 17 13:22:41 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 23ms
+
+
+Started GET "/posts" for 127.0.0.1 at Tue Sep 17 13:22:53 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 40ms (Views: 13.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at Tue Sep 17 13:25:00 -0400 2013
+  Processing by PostsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered posts/_form.html.erb (31.4ms)
+Rendered posts/new.html.erb within layouts/application (112.7ms)
+Completed 200 OK in 472ms (Views: 444.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/posts" for 127.0.0.1 at Tue Sep 17 13:25:25 -0400 2013
+  Processing by PostsController#create as HTML
+  Parameters: {"commit"=>"Create Post", "post"=>{"Body"=>"This is the body", "Title"=>"First Post in Rails Application"}, "authenticity_token"=>"FYKHliDX5wOlwW4mY018ACypwLJQWIV2PtsxJ2Dml/k=", "utf8"=>"✓"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (45.2ms)[0m  INSERT INTO "posts" ("Body", "updated_at", "Title", "created_at") VALUES ('This is the body', '2013-09-17 17:25:25.502939', 'First Post in Rails Application', '2013-09-17 17:25:25.502939')
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 82ms
+
+
+Started GET "/posts/1" for 127.0.0.1 at Tue Sep 17 13:25:25 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1
+Rendered posts/show.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 141ms (Views: 36.4ms | ActiveRecord: 46.0ms)
+
+
+Started POST "/users/sign_out" for 127.0.0.1 at Tue Sep 17 13:25:30 -0400 2013
+  Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"FYKHliDX5wOlwW4mY018ACypwLJQWIV2PtsxJ2Dml/k="}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 47ms
+
+
+Started GET "/posts" for 127.0.0.1 at Tue Sep 17 13:25:38 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 55ms (Views: 19.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at Tue Sep 17 13:25:46 -0400 2013
+  Processing by PostsController#new as HTML
+Completed   in 10ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Sep 17 13:25:46 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (32.4ms)
+Completed 200 OK in 101ms (Views: 79.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Tue Sep 17 13:26:36 -0400 2013
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"9rfPEP9BMakhRMJuDvOHNTeMnoDEv0JeGnHckGT5zNI=", "utf8"=>"✓", "user"=>{"remember_me"=>"1", "password"=>"[FILTERED]", "email"=>"ira@ipvstudio.com"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'ira@ipvstudio.com' LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "updated_at" = '2013-09-17 17:26:36.652674', "remember_created_at" = '2013-09-17 17:26:36.652193' WHERE "users"."id" = 1
+  [1m[36mAREL (0.9ms)[0m  [1mUPDATE "users" SET "updated_at" = '2013-09-17 17:26:36.659477', "sign_in_count" = 2, "current_sign_in_at" = '2013-09-17 17:26:36.658807' WHERE "users"."id" = 1[0m
+Redirected to http://localhost:3000/posts/new
+Completed 302 Found in 178ms
+
+
+Started GET "/posts/new" for 127.0.0.1 at Tue Sep 17 13:26:36 -0400 2013
+  Processing by PostsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered posts/_form.html.erb (8.2ms)
+Rendered posts/new.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 50ms (Views: 23.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Tue Sep 17 13:26:54 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 100ms (Views: 27.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/sign_out" for 127.0.0.1 at Tue Sep 17 13:27:08 -0400 2013
+  Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9rfPEP9BMakhRMJuDvOHNTeMnoDEv0JeGnHckGT5zNI="}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "remember_created_at" = NULL, "updated_at" = '2013-09-17 17:27:08.175054' WHERE "users"."id" = 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 102ms
+
+
+Started GET "/posts" for 127.0.0.1 at Tue Sep 17 13:27:22 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+Rendered posts/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 34ms (Views: 19.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Tue Sep 17 13:27:30 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.7ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 36ms (Views: 20.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at Tue Sep 17 13:27:39 -0400 2013
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1[0m
+Rendered posts/show.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 34ms (Views: 17.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at Tue Sep 17 13:27:43 -0400 2013
+  Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+Completed   in 10ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Sep 17 13:27:43 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.9ms)
+Rendered devise/sessions/new.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 118ms (Views: 25.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts/1" for 127.0.0.1 at Tue Sep 17 13:28:02 -0400 2013
+  Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1hv0HFrXkPurT2oaE3qbfUPH37uHO4YH4wN+YAgpQSQ=", "id"=>"1"}
+Completed   in 11ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Sep 17 13:28:02 -0400 2013
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 47ms (Views: 22.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Tue Sep 17 13:28:11 -0400 2013
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts"
+Rendered posts/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 112ms (Views: 20.1ms | ActiveRecord: 0.6ms)
